@@ -14,5 +14,5 @@ The Prony Analytic Continuation is performed using the following command:
 5. If the error tolerance err is given, the continuation will be carried out in this tolerance; else if optimize is True, the tolerance will be chosen to be the optimal one;
 else the tolerance will be chosen to be the last singular value in the exponentially decaying range.
 6. For noisy data, it is highly suggested to set optimize to be True (and please do not provide err). Although the simulation speed will slow down (will take about several minutes), this will highly improve the noise resistance and the accuracy of final results. And to make this method as robust as possible, please use $N_\omega$ which makes the mapped poles as separate as possible.
-7. For noiseless data, setting optimize to be True will still give best results. However, setting err=1.e-12 will be much faster and give nearly optimal results.
+7. For noiseless data, setting optimize to be True will still give best results. However, setting err=1.e-12 will be much faster and usually give nearly optimal results.
        
