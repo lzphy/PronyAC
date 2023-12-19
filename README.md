@@ -7,11 +7,12 @@ To achieve best performance, please obey the following criteria: $n_0$ should be
 
 The Prony Analytic Continuation is performed using the following command:
 **PronyAC(G_w, w, optimize = True, n_k = 1001, x_min = -10, x_max = 10, y_min = -10, y_max = 10, err = None)**  
-G_w is a 1-d array containing the Matsubara data, and w is the corresponding sampling grid.
-n_k is the maximum number of contour integrals. 
-Only poles located within the rectangle  x_min < x < x_max, y_min < y < y_max are recovered. Our method is not sensitive to these four paramters. So the range can be set to be relatively large. 
-If the error tolerance err is given, the continuation will be carried out in this tolerance; else if optimize is True, the tolerance will be chosen to be the optimal one;
+1. G_w is a 1-d array containing the Matsubara data.
+2. w is the corresponding sampling grid.
+3. n_k is the maximum number of contour integrals.
+4. Only poles located within the rectangle  x_min < x < x_max, y_min < y < y_max are recovered. Our method is not sensitive to these four paramters. So the range can be set to be relatively large.
+5. If the error tolerance err is given, the continuation will be carried out in this tolerance; else if optimize is True, the tolerance will be chosen to be the optimal one;
 else the tolerance will be chosen to be the last singular value in the exponentially decaying range.
-For noisy data, it is highly suggested to set optimize to be True (and please do not provide err). Although the simulation speed will slow down (will take about several minutes), this will highly improve the noise resistance and the accuracy of final results. And to make this method robust, please use $N_\omega$ which makes the mapped poles as separate as possible. 
-For noiseless data, setting optimize to be True will still give best results. However, setting err=1.e-12 will be much faster and give nearly optimal results.
+6. For noisy data, it is highly suggested to set optimize to be True (and please do not provide err). Although the simulation speed will slow down (will take about several minutes), this will highly improve the noise resistance and the accuracy of final results. And to make this method robust, please use $N_\omega$ which makes the mapped poles as separate as possible.
+7. For noiseless data, setting optimize to be True will still give best results. However, setting err=1.e-12 will be much faster and give nearly optimal results.
        
