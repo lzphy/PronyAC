@@ -1,5 +1,5 @@
 # PronyAC
-Python code for Prony Analytic Continuation
+This is a Python program for performing Prony Analytic Continuation.
 
 The input of our simulations is an odd number of Matsubara points $G(i \omega_n)$ sampled on a uniform grid $\{i\omega_{n_0}, i\omega_{n_0 + \Delta n}, \cdots, i\omega_{n_0 + (N_{\omega}-1) \Delta n} \}$, where  $\omega_n=\frac{(2n+1)\pi}{\beta}$ for fermions and $\frac{2n\pi}{\beta}$ for bosons, $n_0 \geq 0$ is an integer controlling the number of the first few points we decide to discard (if any), $\Delta n \geq 1$ is an integer controlling the distance of successive sampling points, $N_{\omega}$ is the total number of sampling points and should be an odd number. 
 
