@@ -5,6 +5,6 @@ The input of our simulations is an odd number of Matsubara points $G(i \omega_n)
 
 To achieve best performance, please obey the following criteria: $n_0$ should be chosen as the smallest value so that $\min|i\omega_{n_0} - \xi_l|$ and $\max|i\omega_{n_0} - \xi_l|$ are of the same order and  function values between first two sampling points, i.e., $G(i\omega_{n_0})$ and $G(i\omega_{n_0 + \Delta n})$, do not change dramatically;  $N_\omega$ should be chosen to the value making $\{\tilde{\xi_l}\}$  separated as far as possible; it is sufficient to set $\Delta n = \max(1, \frac{\beta}{200})$ for the 64-bit machine precision. Practically, our method is robust to variations in $N_\omega$ and relatively large $n_0$. So you may use a tentative $n_0$ and $N_\omega$, e.g., $n_0 = \frac{\beta}{10}$ and $N_\omega = 2001$, at the beginning to get an estimation of pole information, then use this information to choose optimal values of $n_0$ and $N_\omega$.
 
-The Prony Analytic Continuation is performed using the following command:\\
-  PronyAC(G_w, w, optimize = True, n_k = 1001, x_min = -10, x_max = 10, y_min = -10, y_max = 10, err = None)
+The Prony Analytic Continuation is performed using the following command:
+{\bf PronyAC(G_w, w, optimize = True, n_k = 1001, x_min = -10, x_max = 10, y_min = -10, y_max = 10, err = None)}
 
