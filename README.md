@@ -9,7 +9,7 @@ The Prony Analytic Continuation is performed using the following command:
 **PronyAC(G_w, w, optimize = True, n_k = 1001, x_min = -10, x_max = 10, y_min = -10, y_max = 10, err = None)**  
 1. G_w is a 1-d array containing the Matsubara data.
 2. w is the corresponding sampling grid.
-3. n_k is the maximum number of contour integrals.
+3. n_k is the maximum number of contour integrals. Our method is not sensitive to this parameter, so you may leave it untouched.
 4. Only poles located within the rectangle  x_min < x < x_max, y_min < y < y_max are recovered. Our method is not sensitive to these four paramters. So the range can be set to be relatively large.
 5. If the error tolerance err is given, the continuation will be carried out in this tolerance; else if optimize is True, the tolerance will be chosen to be the optimal one;
 else the tolerance will be chosen to be the last singular value in the exponentially decaying range.
