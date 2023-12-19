@@ -17,4 +17,4 @@ else the tolerance will be chosen to be the last singular value in the exponenti
 7. For noiseless data, setting optimize to be True will still give best results. However, setting err=1.e-12 will be much faster and usually give nearly optimal results.
        
 Other classes and functions are also provided to facilitate testings of toy models. The "examples" folder contains all original data of 
-https://doi.org/10.48550/arXiv.2312.10576 and corresponding scripts to generate them. They might be a good start to get familiar with this program.
+https://doi.org/10.48550/arXiv.2312.10576 and corresponding scripts to generate them. It might be a good start from there to get familiar with this program.
