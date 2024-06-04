@@ -18,3 +18,11 @@ else the tolerance will be chosen to be the last singular value in the exponenti
        
 Other classes and functions are also provided to facilitate testings of toy models. The "examples" folder contains all original data of 
 https://doi.org/10.48550/arXiv.2312.10576 and corresponding scripts to generate them. It might be a good start from there to get familiar with this program.
+
+Updates (June 4, 2024): Another function is provided to preserve the up-down symmetry.
+
+**PronyACReal(G_w, w, err = None, pole_real=False)**
+1. G_w is a 1-d array containing the Matsubara data.
+2. w is the corresponding sampling grid (only positive Matsubara frequencies).
+3. err is the precision of the approximation one wants to achieve.
+4. If pole_real is True, the program will only retain the poles exactly on the real axis. It is suggested to set this value to be False (default).
