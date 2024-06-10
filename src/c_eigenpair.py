@@ -3,7 +3,7 @@ import numpy as np
 '''
 Two methods are provided to calculate c-eigenpairs of a symmetric matrix.
 Theoretically (from G. Beylkin and L. Monz´on, Applied and Computational Harmonic Analysis 19, 17 (2005)), Takagi's factorization should be used to control the error of Prony's method.
-In practice, however, we are solving an overdetermined problem and we find SVD can always give equally good approximations.
+In practice, however, we find SVD can give equally good approximations.
 '''
 
 def takagi_fact(A):

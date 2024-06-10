@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.special import ellipk
-import scipy.integrate as integrate
+
 '''
 Function tools for testing the performance of Prony Analytic Continuation.
 '''
@@ -93,3 +93,40 @@ def square_lattice_G(w_n, t = 1.0):
     '''
     assert np.linalg.norm(w_n.imag) == 0.0
     return -1.0j / (2.0 * np.pi * t * np.sqrt(1 + (w_n / (4.0 * t))**2.0)) * ellipk(1.0 / (1.0 + (w_n / (4.0 * t))**2.0))
+
+def triangle_lattice_dos_indiv(x, t = 1.0, tp = 0.5):
+    '''
+    Intermediate function of triangle_lattice_dos(w, t, tp) which only works for a single point.
+    '''
+    assert tp != 0.0
+    u = t / tp
+    E = x / t
+    assert u >= 0.0
+    
+    w_min = -4.0 - 2.0 / u
+    w_max = (u + 2.0 / u if u <= 2.0 else 4.0 - 2.0 / u)
+    
+    if E < w_min or E > w_max:
+        return 0.0
+    
+    r = u * np.sqrt(u**2.0 - E * u + 2.0)
+    p = 4.0 * r
+    q = (r - u**2.0)**2.0 * (r**2.0 - 4.0 * u**2.0 + 2.0 * r * u**2.0 + u ** 4.0) / (4.0 * u**4.0)
+    
+    if q < 0.0:
+        z0 = p - q
+        z1 = p
+    elif q < p:
+        z0 = p
+        z1 = p - q
+    else:
+        z0 = q
+        z1 = q - p
+    
+    return 1.0 / (np.pi**2.0 * tp * np.sqrt(z0)) * ellipk(z1 / z0)
+
+def triangle_lattice_dos(w, t = 1.0, tp = 0.5):
+    '''
+    Density of states for the tight-binding model in triangular lattice with anisotropic nearest-neighbor interactions t and tp.
+    '''
+    return np.vectorize(lambda x: triangle_lattice_dos_indiv(x, t, tp))(w)

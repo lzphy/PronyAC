@@ -99,3 +99,9 @@ class GreenFunc:
             A_w = np.vectorize(self.A_x)(x)
         
         return A_w
+
+def cal_G(z, Al, xl):
+    G_z = np.zeros(z.shape, dtype=np.complex_)
+    for i in range(Al.size):
+        G_z += Al[i] / (z - xl[i])
+    return G_z
