@@ -7,7 +7,7 @@ class PronyAC:
     '''
     A universal analytic continuation program working for fermionic, bosonic, diagonal, off-diagonal, discrete, continuous, noiseless and noisy cases.
     '''
-    def __init__(self, G_w, w, optimize = False, err = None, symmetry = False, pole_real = False, reduce_pole = True, plane = None, k_max = 999, x_range = [-np.inf, np.inf], y_range = [-np.inf, np.inf]):
+    def __init__(self, G_w, w, err = None, optimize = False, symmetry = False, pole_real = False, reduce_pole = True, plane = None, k_max = 999, x_range = [-np.inf, np.inf], y_range = [-np.inf, np.inf]):
         '''
         G_w is a 1-d array containing the Matsubara data, w is the corresponding sampling grid;
         If the error tolerance err is given, the continuation will be carried out in this tolerance;
