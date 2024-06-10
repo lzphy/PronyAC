@@ -136,9 +136,12 @@ class PronyAC:
         #apply the second Prony's method
         self.p_f = PronyApprox(self.h_k)
         if self.err is not None:
-            idx = self.p_f.find_idx_with_err(self.err_max)
-            self.p_f.find_v_with_idx(idx)
-            self.p_f.find_approx()
+            idx_max = self.p_f.find_idx_with_err(self.err_max)
+            for idx in np.arange(idx_max, -1, -1):
+                self.p_f.find_v_with_idx(idx)
+                self.p_f.find_approx()
+                if self.p_f.err_max <= 10.0 * self.err_max:
+                    break
         elif self.optimize is False:
             idx = self.p_f.find_idx_with_exp_decay()
             self.p_f.find_v_with_idx(idx)
