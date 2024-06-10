@@ -160,7 +160,7 @@ class PronyAC:
         if self.symmetry is False:
             G_w_approx = self.cal_G(self.w, weight, location)
             const = (self.G_w - G_w_approx).mean()
-            self.const = const if np.abs(const) > 10.0 * self.err_max else 0.0
+            self.const = const if np.abs(const) > 100.0 * self.err_max else 0.0
         
         if self.plane == "z":
             A = np.zeros((self.w.size, location.size), dtype=np.complex_)
